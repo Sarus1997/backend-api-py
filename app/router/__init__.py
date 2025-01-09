@@ -1,13 +1,13 @@
 from flask import Blueprint
 from app.router.get_data import get_data
 from app.router.post_data import add_data
-from app.router.put_data import update_employee
-from app.router.delete_data import delete_employee
+from app.router.put_data import update_data
+from app.router.delete_data import delete_data
 
 api_blueprint = Blueprint("api", __name__)
 
 #* Register individual route modules
 api_blueprint.add_url_rule("/get_data", view_func=get_data, methods=["GET"])
 api_blueprint.add_url_rule("/post_data", view_func=add_data, methods=["POST"])
-api_blueprint.add_url_rule("/employees/<int:employee_id>", view_func=update_employee, methods=["PUT"])
-api_blueprint.add_url_rule("/employees/<int:employee_id>", view_func=delete_employee, methods=["DELETE"])
+api_blueprint.add_url_rule("/employees/<int:employee_id>", view_func=update_data, methods=["PUT"])
+api_blueprint.add_url_rule("/employees/<int:employee_id>", view_func=delete_data, methods=["DELETE"])

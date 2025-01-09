@@ -1,13 +1,14 @@
-from flask import jsonify
+from flask import jsonify, request
 from app.database import get_db
 from app.models import DataBase as Data
 
-def delete_employee(employee_id):
+def delete_data(data_id):
   db = next(get_db())
-  employee = db.query(Data).filter(Data.id == employee_id).first()
-  if not employee:
-      return jsonify({"error": "Employee not found"}), 404
+  existing_data = db.query(Data).filter(Data.id == data_id).first()
 
-  db.delete(employee)
+  if not existing_data:
+    return jsonify({"message": "Data not found"}), 404
+
+  db.delete(existing_data)
   db.commit()
-  return jsonify({"message": "Employee deleted successfully!"})
+  return jsonify({"message": "Data deleted successfully!"}), 200

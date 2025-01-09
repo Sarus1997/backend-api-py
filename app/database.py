@@ -10,8 +10,8 @@ Base = declarative_base()
 
 #* ฟังก์ชันสำหรับดึง session #
 def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+  db = SessionLocal()
+  try:
+    yield db
+  finally:
+    db.close()

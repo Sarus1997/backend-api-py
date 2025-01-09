@@ -5,7 +5,7 @@ from app.models import Product as Pro
 def get_data():
   
   db = next(get_db())
-  product = db.query(Pro).all()
+  product = db.query(Pro).order_by(Pro.product_id).all()
   return jsonify([
     {
       "product_id": data.product_id,
@@ -19,3 +19,4 @@ def get_data():
     } 
     for data in product
   ])
+

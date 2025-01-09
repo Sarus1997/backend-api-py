@@ -17,7 +17,7 @@
 3. **Create the database**
 
    ```bash
-   mysql -u root -p<password> < employee_db.sql
+   mysql -u root -p<password> < name_table_database.sql
    ```
 
 # 🖥️ Usage

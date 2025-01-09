@@ -1,6 +1,11 @@
-def format_employee(employee):
+def format_db(data):
   return {
-    "id": employee.id,
-    "first_name": employee.first_name,
-    "last_name": employee.last_name
+    "product_id": data.product_id,
+    "image_url": data.image_url,
+    "product_name": data.product_name,
+    "price": data.price,
+    "brand": data.brand,
+    "status": data.status,
+    "created_at": data.created_at,
+    "updated_at": data.updated_at,
   }

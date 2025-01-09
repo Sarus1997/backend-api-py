@@ -28,37 +28,8 @@ Run the application
    python main.py
    ```
 
-Retrieve all employees
+Retrieve all data
 
    ```bash
-curl -X GET http://localhost:5000/api/employees
-   ```
-
-Retrieve employee details by ID
-
-   ```bash
-curl -X GET http://localhost:5000/api/employees/<id>
-   ```
-
-Add a new employee
-
-   ```bash
-curl -X POST -H "Content-Type: application/json" \
--d '{"first_name":"<first_name>","last_name":"<last_name>"}' \
-http://localhost:5000/api/employees
-
-   ```
-
-Update employee information
-
-   ```bash
-curl -X PUT -H "Content-Type: application/json" \
--d '{"first_name":"<first_name>","last_name":"<last_name>"}' \
-http://localhost:5000/api/employees/<id>
-   ```
-
-Delete an employee
-
-   ```bash
-curl -X DELETE http://localhost:5000/api/employees/<id>
+curl -X GET http://localhost:5000/api/URL_ADDRESS
    ```

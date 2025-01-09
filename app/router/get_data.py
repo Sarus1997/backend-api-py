@@ -1,11 +1,11 @@
 from flask import jsonify
 from app.database import get_db
-from app.models import DataBase as Data
+from app.models import Product as Pro
 
 def get_data():
   
   db = next(get_db())
-  product = db.query(Data).all()
+  product = db.query(Pro).all()
   return jsonify([
     {
       "product_id": data.product_id,

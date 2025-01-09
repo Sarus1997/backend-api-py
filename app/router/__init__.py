@@ -9,5 +9,5 @@ api_blueprint = Blueprint("api", __name__)
 #* Register individual route modules
 api_blueprint.add_url_rule("/get_data", view_func=get_data, methods=["GET"])
 api_blueprint.add_url_rule("/post_data", view_func=add_data, methods=["POST"])
-api_blueprint.add_url_rule("/employees/<int:employee_id>", view_func=update_data, methods=["PUT"])
-api_blueprint.add_url_rule("/employees/<int:employee_id>", view_func=delete_data, methods=["DELETE"])
+api_blueprint.add_url_rule("/update_data", view_func=update_data, methods=["PUT"])
+api_blueprint.add_url_rule("/delete_data", view_func=delete_data, methods=["DELETE"])

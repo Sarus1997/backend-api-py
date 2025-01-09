@@ -1,22 +1,32 @@
+from datetime import datetime
 from flask import jsonify, request
 from app.database import get_db
-from app.models import DataBase as Data
+from app.models import Product as Pro
+from app.core.function import generate_id, generate_date_time
 
-def update_data(data_id):
+def update_data():
   db = next(get_db())
   data = request.json
-  existing_data = db.query(Data).filter(Data.id == data_id).first()
-
+  product_id = data.get("product_id")
+  
+  # Fetch the existing record
+  existing_data = db.query(Pro).filter(Pro.product_id == product_id).first()
+  
   if not existing_data:
-    return jsonify({"message": "Data not found"}), 404
-
+    return jsonify({"message": "Product not found"}), 404
+  
+  # Update the fields
   existing_data.image_url = data.get("image_url", existing_data.image_url)
   existing_data.product_name = data.get("product_name", existing_data.product_name)
   existing_data.price = data.get("price", existing_data.price)
   existing_data.brand = data.get("brand", existing_data.brand)
-  existing_data.status = data.get("status", existing_data.status)
-  existing_data.created_at = data.get("created_at", existing_data.created_at)
-  existing_data.updated_at = data.get("updated_at", existing_data.updated_at)
-
+  existing_data.status = data.get("status", 'update')
+  existing_data.updated_at = data.get("updated_at", datetime.now())
+  
   db.commit()
-  return jsonify({"message": "Data updated successfully!", "id": existing_data.id}), 200
+  
+  return jsonify({
+    "message": "Product updated successfully!", 
+    "id": existing_data.product_id,
+    "timestamp": generate_date_time(),
+  }), 200 

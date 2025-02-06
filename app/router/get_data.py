@@ -6,7 +6,7 @@ def get_data():
   
   db = next(get_db())
   product = db.query(Pro).order_by(Pro.product_id).all()
-  return jsonify([
+  result = [
     {
       "product_id": data.product_id,
       "image_url": data.image_url, 
@@ -18,5 +18,5 @@ def get_data():
       "updated_at": data.updated_at,
     } 
     for data in product
-  ])
-
+  ]
+  return jsonify({"result": result})

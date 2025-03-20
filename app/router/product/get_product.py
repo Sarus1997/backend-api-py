@@ -3,7 +3,7 @@ from app.database import get_db
 from datetime import datetime
 from sqlalchemy import text
 
-def get_data_2():
+def get_product():
     db = None
     try:
         #* ตรวจสอบว่า get_db() ทำงานได้หรือไม่

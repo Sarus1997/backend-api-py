@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import jsonify, request
 from app.database import get_db
 from app.models import Product as Pro
-from app.core.function import generate_id, generate_date_time
+from app.core.function import generate_date_time
 
 def update_data():
   db = next(get_db())

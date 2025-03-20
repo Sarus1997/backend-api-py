@@ -3,33 +3,30 @@
 ## 🚀 Installation
 
 1. **Clone the project from GitHub**
-
-   ```bash
-   git clone https://github.com/Sarus1997/backend-api-py.git
-   ```
+  ```bash
+  git clone https://github.com/Sarus1997/backend-api-py.git
+  ```
 
 2. **Install dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 3. **Create the database**
+  ```bash
+  mysql -u root -p<password> < name_table_database.sql
+  ```
 
-   ```bash
-   mysql -u root -p<password> < name_table_database.sql
-   ```
+## 🖥️ Usage
 
-# 🖥️ Usage
+1. **Run the application**
+  ```bash
+  python main.py
+  ```
 
-Run the application
+2. **API Endpoints**
 
-   ```bash
-   python main.py
-   ```
-
-Retrieve all data
-
-   ```bash
-curl -X GET http://localhost:5000/api/URL_ADDRESS
-   ```
+  - Get all data
+    ```bash
+    curl -X GET http://localhost:5000/api/URL_ADDRESS
+    ```
